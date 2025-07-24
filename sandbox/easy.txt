@@ -1,0 +1,1 @@
+This file is allowed to be read by the php file because it's in the sandboxed webroot.
