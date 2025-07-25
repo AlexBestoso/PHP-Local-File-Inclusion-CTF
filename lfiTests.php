@@ -14,7 +14,7 @@
 	 * It throws and exception on LFI, returns false on no file,
 	 * and returns the concatonated absolute path on success.
          * */
-	function security_lfi_check($restrictedWebRoot, $dirtyFileName){
+	function lfi_checkmate($restrictedWebRoot, $dirtyFileName){
 		$lute = $restrictedWebRoot.$dirtyFileName;
 		$abso = realpath($lute);
 		if(!file_exists($lute) && !file_exists($abso))
@@ -35,7 +35,7 @@
 
 echo "\n\n\n";
 
-	$safePath = security_lfi_check($AbsoluteWebroot, $evilPath);
+	$safePath = lfi_checkmate($AbsoluteWebroot, $evilPath);
 	if($safePath === false){
 		die("File doesn't exist.\n");
 	}
